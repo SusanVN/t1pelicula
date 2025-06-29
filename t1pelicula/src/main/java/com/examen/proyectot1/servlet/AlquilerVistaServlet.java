@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet("/alquiler")  // Esta será la URL para acceder a tu formulario
+@WebServlet("/alquiler")  // Esta es la URL para acceder al formulario
 public class AlquilerVistaServlet extends HttpServlet {
 
     private AlquilerController alquilerController = new AlquilerController();
@@ -16,11 +16,11 @@ public class AlquilerVistaServlet extends HttpServlet {
 
         
 
-        // Obtener listas desde el controlador
+        // Obtiene las listas desde el controlador
         request.setAttribute("clientes", alquilerController.obtenerClientes());
         request.setAttribute("peliculas", alquilerController.obtenerPeliculas());
 
-        // Reenviar al JSP
+        // Reenvia al JSP
         request.getRequestDispatcher("/alquiler.jsp").forward(request, response);
     }
 }

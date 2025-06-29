@@ -28,7 +28,7 @@ public class AlquilerController {
         return peliculas;
     }
 
-      /*Registra el alquiler en la BD2_Vilchez */  
+      //Registra el alquiler en la BD2_Vilchez 
      public boolean registrarAlquiler(Cliente cliente, List<DetalleAlquiler> detalles, double total) {
         EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager(); 
         EntityTransaction tx = em.getTransaction(); 
@@ -36,10 +36,10 @@ public class AlquilerController {
         try {
             tx.begin(); 
 
-            // Creamos un nuevo objeto Alquiler con estado Activo
+            // Crea un nuevo objeto Alquiler con estado ACTIVO
             Alquiler alquiler = new Alquiler(cliente, total, EstadoAlquiler.ACTIVO);
 
-            // Asignamos el alquiler a cada detalle y lo añadimos a la lista del alquiler
+            // Asigna el alquiler a cada detalle y lo añade a la lista del alquiler
             for (DetalleAlquiler detalle : detalles) {
                 detalle.setAlquiler(alquiler); // Establece la relación
                 alquiler.getDetalles().add(detalle); // Añade a la lista del alquiler
@@ -63,7 +63,7 @@ public class AlquilerController {
         }
     }
 
-    /**Buscar cliente por su ID */
+    //Buscar cliente por su ID 
 
     public Cliente buscarClientePorId(int idCliente){
         EntityManager em= JPAUtil.getEntityManagerFactory().createEntityManager();
@@ -76,7 +76,7 @@ public class AlquilerController {
         return cliente;
     }
 
-    /**Buscar pelicula por su ID */
+    //Buscar pelicula por su ID 
 
     public Pelicula buscarPeliculaPorId(int idPelicula){
         EntityManager em= JPAUtil.getEntityManagerFactory().createEntityManager();

@@ -23,10 +23,10 @@ public class RegistrarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // 1. Obtener ID del cliente
+            // Obtiene el ID del cliente
             int idCliente = Integer.parseInt(request.getParameter("cliente"));
 
-            // 2. Obtener las películas seleccionadas
+            // Obtiene las películas seleccionadas
             String[] peliculasSeleccionadas = request.getParameterValues("peliculaSeleccionada");
 
             if (peliculasSeleccionadas == null || peliculasSeleccionadas.length == 0) {
@@ -34,7 +34,7 @@ public class RegistrarServlet extends HttpServlet {
                 return;
             }
 
-            // 3. Buscar cliente desde la base de datos
+            // Busca cliente desde la base de datos
             Cliente cliente = alquilerController.buscarClientePorId(idCliente);
 
             List<DetalleAlquiler> detalles = new ArrayList<>();
@@ -54,13 +54,13 @@ public class RegistrarServlet extends HttpServlet {
                 detalle.setCantidad(cantidad);
                 detalles.add(detalle);
 
-                total += cantidad * 15.0; // Suponiendo 15 soles por unidad
+                total += cantidad * 15.0; 
             }
 
             // Registrar el alquiler usando el controlador
             boolean exito = alquilerController.registrarAlquiler(cliente, detalles, total);
 
-            // 7. Redirigir con mensaje
+            
             if (exito) {
                 response.sendRedirect("alquiler.jsp?mensaje=Alquiler+registrado+correctamente");
             } else {
