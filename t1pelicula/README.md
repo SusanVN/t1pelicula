@@ -123,12 +123,12 @@ http://localhost:8080/t1pelicula/alquiler.jsp
 
 1. Combo clientes
 
-![Imagen 01](src/main/resources/static/imagen_01.png)
+![Combo de clientes](./imagenes/imagen_01.png) 
 
 2. Combo peliculas
 
-![Imagen 02](src/main/resources/static/imagen_02.png)
+![Combo de películas](./imagenes/imagen_02.png)  
 
 3. Selección de peliculas y cantidad
 
-![Imagen 03](./src/main/resources/static/imagen_03.png)
+![Selección de películas](./imagenes/imagen_03.png)  
